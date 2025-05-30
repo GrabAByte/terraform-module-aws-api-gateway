@@ -5,7 +5,7 @@ resource "aws_api_gateway_rest_api" "api" {
   tags = var.tags
 }
 
-resource "aws_api_gateway_resource" "upload" {
+resource "aws_api_gateway_resource" "resource" {
   rest_api_id = aws_api_gateway_rest_api.api.id
   parent_id   = aws_api_gateway_rest_api.api.root_resource_id
   path_part   = var.api_path_part
@@ -16,29 +16,29 @@ resource "aws_api_gateway_authorizer" "lambda_auth" {
   name                             = "LambdaTokenAuthorizer"
   rest_api_id                      = aws_api_gateway_rest_api.api.id
   authorizer_uri                   = var.lambda_auth_invoke_arn
-  authorizer_result_ttl_in_seconds = 300
-  type                             = "TOKEN"
-  identity_source                  = "method.request.header.Authorization"
+  authorizer_result_ttl_in_seconds = var.api_authorization_ttl
+  type                             = var.api_authorization_type
+  identity_source                  = var.api_authorization_identity_source
 }
 
-resource "aws_api_gateway_method" "upload_post" {
+resource "aws_api_gateway_method" "method" {
   rest_api_id   = aws_api_gateway_rest_api.api.id
-  resource_id   = aws_api_gateway_resource.upload.id
+  resource_id   = aws_api_gateway_resource.resource.id
   http_method   = var.api_http_method
   authorization = var.api_authorization_method
   authorizer_id = aws_api_gateway_authorizer.lambda_auth.id
 }
 
-resource "aws_api_gateway_integration" "upload_lambda" {
+resource "aws_api_gateway_integration" "lambda" {
   rest_api_id             = aws_api_gateway_rest_api.api.id
-  resource_id             = aws_api_gateway_resource.upload.id
-  http_method             = aws_api_gateway_method.upload_post.http_method
+  resource_id             = aws_api_gateway_resource.resource.id
+  http_method             = aws_api_gateway_method.method.http_method
   integration_http_method = var.integration_http_method
   type                    = var.integration_type
   uri                     = var.lambda_invoke_arn
 }
 
-resource "aws_lambda_permission" "upload_api_gateway" {
+resource "aws_lambda_permission" "api_gateway" {
   statement_id  = "AllowExecutionFromAPIGatewayUpload"
   action        = "lambda:InvokeFunction"
   function_name = var.lambda_name
@@ -49,7 +49,7 @@ resource "aws_lambda_permission" "upload_api_gateway" {
 resource "aws_api_gateway_deployment" "deployment" {
   rest_api_id = aws_api_gateway_rest_api.api.id
 
-  depends_on = [aws_api_gateway_integration.upload_lambda]
+  depends_on = [aws_api_gateway_integration.lambda]
 }
 
 resource "aws_api_gateway_stage" "stage" {
@@ -61,7 +61,7 @@ resource "aws_api_gateway_stage" "stage" {
 resource "aws_api_gateway_method_settings" "all" {
   rest_api_id = aws_api_gateway_rest_api.api.id
   stage_name  = var.stage_name
-  method_path = "${var.api_path_part}/POST"
+  method_path = "${var.api_path_part}/${var.api_http_method}"
 
   # observability
   # hardening: basic example of controlling number of requests
