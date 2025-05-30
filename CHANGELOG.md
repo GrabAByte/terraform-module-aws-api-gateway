@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/GrabAByte/terraform-module-aws-api-gateway/compare/v1.0.0...v1.0.1) (2025-05-30)
+
+
+### Bug Fixes
+
+* remove hashicorp/archive ([af12368](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/af123686a2b53141de917b4f68a15ef54a985336))
+
 # 1.0.0 (2025-05-30)
 
 
