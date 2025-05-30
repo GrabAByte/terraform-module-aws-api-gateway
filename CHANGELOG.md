@@ -1,3 +1,13 @@
+## [1.0.2](https://github.com/GrabAByte/terraform-module-aws-api-gateway/compare/v1.0.1...v1.0.2) (2025-05-30)
+
+
+### Bug Fixes
+
+* make defaults generic ([141bb63](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/141bb637f0a92ebcec3b8f9308f9afee92053fd0))
+* make defaults generic ([8b29f54](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/8b29f54fac034d24963e50270b11b98025d5cb6e))
+* remove hashicorp/archive ([22296f4](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/22296f4a4ebe42a486626be243646e009c8b325e))
+* set module defaults for re-use ([3f61d10](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/3f61d10192be006cfd3fa36acdf9abb70b0a1767))
+
 ## [1.0.1](https://github.com/GrabAByte/terraform-module-aws-api-gateway/compare/v1.0.0...v1.0.1) (2025-05-30)
 
 
