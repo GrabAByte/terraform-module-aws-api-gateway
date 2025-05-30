@@ -10,21 +10,21 @@ variable "api_authorization_method" {
 }
 
 variable "api_authorization_ttl" {
-  type = number
+  type        = number
   description = "The Auth Method TTL in seconds"
-  default = 300
+  default     = 300
 }
 
 variable "api_authorization_type" {
-  type = string
+  type        = string
   description = "The API Authorization type"
-  default = "TOKEN"
+  default     = "TOKEN"
 }
 
 variable "api_authorization_identity_source" {
-  type = string
+  type        = string
   description = "The API Authorization Identity Source"
-  default = "method.request.header.Authorization"
+  default     = "method.request.header.Authorization"
 }
 
 variable "api_http_method" {
