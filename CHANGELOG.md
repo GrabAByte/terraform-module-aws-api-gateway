@@ -1,3 +1,13 @@
+# [1.1.0](https://github.com/GrabAByte/terraform-module-aws-api-gateway/compare/v1.0.2...v1.1.0) (2025-05-30)
+
+
+### Features
+
+* add docs ([01ea0c5](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/01ea0c52dc4f92bf28e3d73e02bd5cc92d3e9e85))
+* add docs ([5b66ec4](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/5b66ec441cd978ccd49e5f6e3af15019955b577f))
+* add docs ([4c17018](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/4c170181a250a9e1057333933722188d921dc7a5))
+* docs ([8ff92e3](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/8ff92e3ce4e47efec02df9775b28ffb9892fc740))
+
 ## [1.0.2](https://github.com/GrabAByte/terraform-module-aws-api-gateway/compare/v1.0.1...v1.0.2) (2025-05-30)
 
 
