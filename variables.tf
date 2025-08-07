@@ -71,15 +71,15 @@ variable "integration_type" {
   default     = "AWS_PROXY"
 }
 
-#variable "lambda_auth_invoke_arn" {
-#  type        = string
-#  description = "The ARN for invoking the Authenticating Lambda function"
-#}
-
-variable "lambda_invoke_arn" {
+variable "lambda_auth_invoke_arn" {
   type        = string
-  description = "The ARN for invoking the Main lambda function"
+  description = "The ARN for invoking the Authenticating Lambda function"
 }
+
+#variable "lambda_invoke_arn" {
+#  type        = string
+#  description = "The ARN for invoking the Main lambda function"
+#}
 
 #variable "lambda_name" {
 #  type        = string
