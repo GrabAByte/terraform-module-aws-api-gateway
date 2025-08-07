@@ -21,7 +21,6 @@ variable "api_routes" {
 variable "api_authorization_method" {
   type        = string
   description = "The API Authroization Method"
-  default     = "CUSTOM"
 }
 
 variable "api_authorization_ttl" {

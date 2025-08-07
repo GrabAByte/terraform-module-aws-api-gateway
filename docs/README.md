@@ -21,6 +21,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_api_gateway_authorizer.lambda_auth](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_authorizer) | resource |
+| [aws_api_gateway_method.method](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_method) | resource |
 | [aws_api_gateway_resource.resource](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource) | resource |
 | [aws_api_gateway_rest_api.api](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_rest_api) | resource |
 
@@ -29,7 +30,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_api_authorization_identity_source"></a> [api\_authorization\_identity\_source](#input\_api\_authorization\_identity\_source) | The API Authorization Identity Source | `string` | `"method.request.header.Authorization"` | no |
-| <a name="input_api_authorization_method"></a> [api\_authorization\_method](#input\_api\_authorization\_method) | The API Authroization Method | `string` | `"CUSTOM"` | no |
+| <a name="input_api_authorization_method"></a> [api\_authorization\_method](#input\_api\_authorization\_method) | The API Authroization Method | `string` | n/a | yes |
 | <a name="input_api_authorization_ttl"></a> [api\_authorization\_ttl](#input\_api\_authorization\_ttl) | The Auth Method TTL in seconds | `number` | `300` | no |
 | <a name="input_api_authorization_type"></a> [api\_authorization\_type](#input\_api\_authorization\_type) | The API Authorization type | `string` | `"TOKEN"` | no |
 | <a name="input_api_http_method"></a> [api\_http\_method](#input\_api\_http\_method) | The API HTTP Method | `string` | `"POST"` | no |
