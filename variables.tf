@@ -3,9 +3,9 @@ variable "api_name" {
   description = "The name of the API"
 }
 
-variable "api_rpites" {
-  type = map(any)
-}
+#variable "api_routes" {
+#  type = map(any)
+#}
 
 # variable "api_routes" {
 #   type = map(object({
@@ -71,25 +71,25 @@ variable "integration_type" {
   default     = "AWS_PROXY"
 }
 
-variable "lambda_auth_invoke_arn" {
-  type        = string
-  description = "The ARN for invoking the Authenticating Lambda function"
-}
+#variable "lambda_auth_invoke_arn" {
+#  type        = string
+#  description = "The ARN for invoking the Authenticating Lambda function"
+#}
 
 variable "lambda_invoke_arn" {
   type        = string
   description = "The ARN for invoking the Main lambda function"
 }
 
-variable "lambda_name" {
-  type        = string
-  description = "The name of the main lambda function"
-}
+#variable "lambda_name" {
+#  type        = string
+#  description = "The name of the main lambda function"
+#}
 
-variable "stage_name" {
-  type        = string
-  description = "The stage name for API resource"
-}
+#variable "stage_name" {
+#  type        = string
+#  description = "The stage name for API resource"
+#}
 
 variable "tags" {
   type        = map(any)
