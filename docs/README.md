@@ -32,6 +32,7 @@ No modules.
 | <a name="input_api_authorization_type"></a> [api\_authorization\_type](#input\_api\_authorization\_type) | The API Authorization type | `string` | `"TOKEN"` | no |
 | <a name="input_api_http_method"></a> [api\_http\_method](#input\_api\_http\_method) | The API HTTP Method | `string` | `"POST"` | no |
 | <a name="input_api_name"></a> [api\_name](#input\_api\_name) | The name of the API | `string` | n/a | yes |
+| <a name="input_binary_media_types"></a> [binary\_media\_types](#input\_binary\_media\_types) | The applicable binary media types to accept | `list(any)` | n/a | yes |
 | <a name="input_integration_http_method"></a> [integration\_http\_method](#input\_integration\_http\_method) | The Integration HTTP Method | `string` | `"POST"` | no |
 | <a name="input_integration_type"></a> [integration\_type](#input\_integration\_type) | The Integration platform provider | `string` | `"AWS_PROXY"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | The project tags | `map(any)` | n/a | yes |

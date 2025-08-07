@@ -54,10 +54,10 @@ variable "api_http_method" {
 #  default     = "upload"
 #}
 
-#variable "binary_media_types" {
-#  type        = list(any)
-#  description = "The applicable binary media types to accept"
-#}
+variable "binary_media_types" {
+  type        = list(any)
+  description = "The applicable binary media types to accept"
+}
 
 variable "integration_http_method" {
   type        = string
