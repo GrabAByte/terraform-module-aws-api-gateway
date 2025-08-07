@@ -5,14 +5,14 @@ resource "aws_api_gateway_rest_api" "api" {
 }
 
 # authentication (time-bound implementation)
-#resource "aws_api_gateway_authorizer" "lambda_auth" {
-#  name                             = "LambdaTokenAuthorizer"
-#  rest_api_id                      = aws_api_gateway_rest_api.api.id
-#  authorizer_uri                   = var.lambda_auth_invoke_arn
-#  authorizer_result_ttl_in_seconds = var.api_authorization_ttl
-#  type                             = var.api_authorization_type
-#  identity_source                  = var.api_authorization_identity_source
-#}
+resource "aws_api_gateway_authorizer" "lambda_auth" {
+  name                             = "LambdaTokenAuthorizer"
+  rest_api_id                      = aws_api_gateway_rest_api.api.id
+  authorizer_uri                   = var.lambda_auth_invoke_arn
+  authorizer_result_ttl_in_seconds = var.api_authorization_ttl
+  type                             = var.api_authorization_type
+  identity_source                  = var.api_authorization_identity_source
+}
 
 #resource "aws_api_gateway_resource" "resource" {
 #  rest_api_id = aws_api_gateway_rest_api.api.id
