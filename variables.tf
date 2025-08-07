@@ -3,9 +3,9 @@ variable "api_name" {
   description = "The name of the API"
 }
 
-#variable "api_routes" {
-#  type = map(any)
-#}
+variable "api_routes" {
+  type = map(any)
+}
 
 # variable "api_routes" {
 #   type = map(object({
