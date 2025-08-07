@@ -18,10 +18,10 @@ variable "api_routes" {
 #   }))
 # }
 
-variable "api_authorization_method" {
-  type        = string
-  description = "The API Authroization Method"
-}
+#variable "api_authorization_method" {
+#  type        = string
+#  description = "The API Authroization Method"
+#}
 
 variable "api_authorization_ttl" {
   type        = number
