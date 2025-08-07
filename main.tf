@@ -58,9 +58,10 @@ resource "aws_api_gateway_stage" "stage" {
 }
 
 resource "aws_api_gateway_method_settings" "all" {
+  for_each    = var.api_routes
   rest_api_id = aws_api_gateway_rest_api.api.id
   stage_name  = var.stage_name
-  method_path = "${var.api_path_part}/${var.api_http_method}"
+  method_path = "${each.value.api_path_part}/${each.value.http_method}"
 
   # observability
   # hardening: basic example of controlling number of requests

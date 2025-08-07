@@ -3,6 +3,21 @@ variable "api_name" {
   description = "The name of the API"
 }
 
+variable "api_rpites" {
+  type = map(any)
+}
+
+# variable "api_routes" {
+#   type = map(object({
+#     api_path_part      = string
+#     stage_name         = string
+#     binary_media_types = list(string)
+#     lambda_auth_url    = string
+#     lambda_invoke_url  = string
+#     lambda_name        = string
+#   }))
+# }
+
 variable "api_authorization_method" {
   type        = string
   description = "The API Authroization Method"
@@ -33,16 +48,16 @@ variable "api_http_method" {
   default     = "POST"
 }
 
-variable "api_path_part" {
-  type        = string
-  description = "The API path part"
-  default     = "upload"
-}
+#variable "api_path_part" {
+#  type        = string
+#  description = "The API path part"
+#  default     = "upload"
+#}
 
-variable "binary_media_types" {
-  type        = list(any)
-  description = "The applicable binary media types to accept"
-}
+#variable "binary_media_types" {
+#  type        = list(any)
+#  description = "The applicable binary media types to accept"
+#}
 
 variable "integration_http_method" {
   type        = string
