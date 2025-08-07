@@ -58,17 +58,17 @@ variable "binary_media_types" {
   description = "The applicable binary media types to accept"
 }
 
-variable "integration_http_method" {
-  type        = string
-  description = "The Integration HTTP Method"
-  default     = "POST"
-}
+#variable "integration_http_method" {
+#  type        = string
+#  description = "The Integration HTTP Method"
+#  default     = "POST"
+#}
 
-variable "integration_type" {
-  type        = string
-  description = "The Integration platform provider"
-  default     = "AWS_PROXY"
-}
+#variable "integration_type" {
+#  type        = string
+#  description = "The Integration platform provider"
+#  default     = "AWS_PROXY"
+#}
 
 variable "lambda_auth_invoke_arn" {
   type        = string

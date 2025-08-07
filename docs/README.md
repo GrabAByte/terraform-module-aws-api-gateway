@@ -21,6 +21,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_api_gateway_authorizer.lambda_auth](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_authorizer) | resource |
+| [aws_api_gateway_integration.lambda](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_integration) | resource |
 | [aws_api_gateway_method.method](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_method) | resource |
 | [aws_api_gateway_resource.resource](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource) | resource |
 | [aws_api_gateway_rest_api.api](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_rest_api) | resource |
@@ -36,8 +37,6 @@ No modules.
 | <a name="input_api_name"></a> [api\_name](#input\_api\_name) | The name of the API | `string` | n/a | yes |
 | <a name="input_api_routes"></a> [api\_routes](#input\_api\_routes) | n/a | `map(any)` | n/a | yes |
 | <a name="input_binary_media_types"></a> [binary\_media\_types](#input\_binary\_media\_types) | The applicable binary media types to accept | `list(any)` | n/a | yes |
-| <a name="input_integration_http_method"></a> [integration\_http\_method](#input\_integration\_http\_method) | The Integration HTTP Method | `string` | `"POST"` | no |
-| <a name="input_integration_type"></a> [integration\_type](#input\_integration\_type) | The Integration platform provider | `string` | `"AWS_PROXY"` | no |
 | <a name="input_lambda_auth_invoke_arn"></a> [lambda\_auth\_invoke\_arn](#input\_lambda\_auth\_invoke\_arn) | The ARN for invoking the Authenticating Lambda function | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The project tags | `map(any)` | n/a | yes |
 
