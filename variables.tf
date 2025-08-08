@@ -80,15 +80,16 @@ variable "lambda_auth_invoke_arn" {
 #  description = "The ARN for invoking the Main lambda function"
 #}
 
-#variable "lambda_name" {
-#  type        = string
-#  description = "The name of the main lambda function"
-#}
+variable "lambda_names" {
+  type        = list(any)
+  default     = []
+  description = "The name of the main lambda function"
+}
 
-#variable "stage_name" {
-#  type        = string
-#  description = "The stage name for API resource"
-#}
+variable "stage_name" {
+  type        = string
+  description = "The stage name for API resource"
+}
 
 variable "tags" {
   type        = map(any)

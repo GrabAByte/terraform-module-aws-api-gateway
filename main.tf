@@ -41,43 +41,31 @@ resource "aws_api_gateway_integration" "lambda" {
   uri                     = each.value.lambda_invoke_arn
 }
 
-## if $lambda_name then
-#resource "aws_lambda_permission" "api_gateway" {
-#  statement_id  = "AllowExecutionFromAPIGatewayUpload"
-#  action        = "lambda:InvokeFunction"
-#  function_name = var.lambda_name
-#  principal     = "apigateway.amazonaws.com"
-#  source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
-#}
+#if $lambda_name then
+resource "aws_lambda_permission" "api_gateway" {
+  for_each      = var.lambda_names
+  statement_id  = "AllowExecutionFromAPIGatewayUpload"
+  action        = "lambda:InvokeFunction"
+  function_name = each.value
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
+}
 
-#resource "aws_api_gateway_deployment" "deployment" {
-#  rest_api_id = aws_api_gateway_rest_api.api.id
-#
-#  depends_on = [aws_api_gateway_integration.lambda]
-#}
+resource "aws_api_gateway_deployment" "deployment" {
+  rest_api_id = aws_api_gateway_rest_api.api.id
+}
 
-#resource "aws_api_gateway_stage" "stage" {
-#  deployment_id = aws_api_gateway_deployment.deployment.id
-#  rest_api_id   = aws_api_gateway_rest_api.api.id
-#  stage_name    = var.stage_name
-#}
+resource "aws_api_gateway_stage" "stage" {
+  deployment_id = aws_api_gateway_deployment.deployment.id
+  rest_api_id   = aws_api_gateway_rest_api.api.id
+  stage_name    = var.stage_name
+}
 
-#resource "aws_api_gateway_method_settings" "all" {
-#  for_each    = var.api_routes
-#  rest_api_id = aws_api_gateway_rest_api.api.id
-#  stage_name  = var.stage_name
-#  method_path = "${each.value.api_path_part}/${each.value.http_method}"
+resource "aws_api_gateway_method_settings" "all" {
+  for_each    = var.api_routes
+  rest_api_id = aws_api_gateway_rest_api.api.id
+  stage_name  = var.stage_name
+  method_path = "${each.key}/${each.value.http_method}"
 
-# observability
-# hardening: basic example of controlling number of requests
-# variablize
-#  settings {
-#    data_trace_enabled = true
-#    metrics_enabled    = true
-#    # logging_level        = "ERROR" # requires cloud watch setup
-#    throttling_burst_limit = 10
-#    throttling_rate_limit  = 1
-#  }
-
-#  depends_on = [aws_api_gateway_stage.stage]
-#}
+  depends_on = [aws_api_gateway_stage.stage]
+}
