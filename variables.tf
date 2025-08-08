@@ -81,7 +81,7 @@ variable "lambda_auth_invoke_arn" {
 #}
 
 variable "lambda_names" {
-  type        = list(any)
+  type        = list(string)
   default     = []
   description = "The name of the main lambda function"
 }

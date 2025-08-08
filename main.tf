@@ -43,10 +43,10 @@ resource "aws_api_gateway_integration" "lambda" {
 
 #if $lambda_name then
 resource "aws_lambda_permission" "api_gateway" {
-  for_each      = var.lambda_names
+  count         = length(var.lambda_names)
   statement_id  = "AllowExecutionFromAPIGatewayUpload"
   action        = "lambda:InvokeFunction"
-  function_name = each.value
+  function_name = var.lambda_names[count.index]
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
 }
