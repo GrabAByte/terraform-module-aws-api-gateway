@@ -51,8 +51,17 @@ resource "aws_lambda_permission" "api_gateway" {
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
 }
 
+resource "null_resource" "previous" {}
+# add sleep for method creation
+
+resource "time_sleep" "wait_90_seconds" {
+  depends_on      = [null_resource.previous]
+  create_duration = "90s"
+}
+
 resource "aws_api_gateway_deployment" "deployment" {
   rest_api_id = aws_api_gateway_rest_api.api.id
+  depends_on  = [time_sleep.wait_90_seconds]
 }
 
 resource "aws_api_gateway_stage" "stage" {
