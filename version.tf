@@ -4,6 +4,14 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
+    time = {
+      source  = "hashicorp/time"
+      version = "0.13.1"
+    }
+    null = {
+      source  = "hashicorp/null"
+      version = "3.2.4"
+    }
   }
 
   # ubuntu 22.04 used as github runner as it has terraform baked
