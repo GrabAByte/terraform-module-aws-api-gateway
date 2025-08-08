@@ -21,7 +21,6 @@ resource "aws_api_gateway_resource" "resource" {
   path_part   = each.key
 }
 
-# TODO: perform terraform plan to see what this is called
 resource "aws_api_gateway_method" "method" {
   for_each      = var.api_routes
   rest_api_id   = aws_api_gateway_rest_api.api.id
@@ -52,7 +51,6 @@ resource "aws_lambda_permission" "api_gateway" {
 }
 
 resource "null_resource" "previous" {}
-# add sleep for method creation
 
 resource "time_sleep" "wait_90_seconds" {
   depends_on      = [null_resource.previous]
