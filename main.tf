@@ -52,14 +52,14 @@ resource "aws_lambda_permission" "api_gateway" {
 
 resource "null_resource" "previous" {}
 
-resource "time_sleep" "wait_90_seconds" {
+resource "time_sleep" "wait_180_seconds" {
   depends_on      = [null_resource.previous]
-  create_duration = "90s"
+  create_duration = "180s"
 }
 
 resource "aws_api_gateway_deployment" "deployment" {
   rest_api_id = aws_api_gateway_rest_api.api.id
-  depends_on  = [time_sleep.wait_90_seconds]
+  depends_on  = [time_sleep.wait_180_seconds]
 }
 
 resource "aws_api_gateway_stage" "stage" {
