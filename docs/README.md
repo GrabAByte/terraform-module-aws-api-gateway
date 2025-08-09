@@ -52,5 +52,8 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_api_routes"></a> [api\_routes](#output\_api\_routes) | n/a |
+| <a name="output_api_url"></a> [api\_url](#output\_api\_url) | n/a |
 <!-- END_TF_DOCS -->
