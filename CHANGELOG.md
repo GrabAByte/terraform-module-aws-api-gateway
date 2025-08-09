@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/GrabAByte/terraform-module-aws-api-gateway/compare/v1.2.0...v1.2.1) (2025-08-09)
+
+
+### Bug Fixes
+
+* add outputs ([c5c89af](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/c5c89af61c1b4db2926a1d4d08b04eb6b59e6df3))
+
 # [1.2.0](https://github.com/GrabAByte/terraform-module-aws-api-gateway/compare/v1.1.0...v1.2.0) (2025-08-08)
 
 
