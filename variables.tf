@@ -57,7 +57,7 @@ variable "method_settings" {
   })
 
   default = {
-    metrics_enabled        = true
+    metrics_enabled        = false
     logging_level          = "INFO"
     data_trace_enabled     = false
     throttling_burst_limit = 100
