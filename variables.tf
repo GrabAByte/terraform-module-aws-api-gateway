@@ -49,8 +49,6 @@ variable "lambda_names" {
 
 variable "method_settings" {
   type = object({
-    metrics_enabled        = bool
-    logging_level          = string
     data_trace_enabled     = bool
     throttling_burst_limit = number
     throttling_rate_limit  = number
