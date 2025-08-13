@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/GrabAByte/terraform-module-aws-api-gateway/compare/v1.2.1...v1.3.0) (2025-08-13)
+
+
+### Features
+
+* add authorizer as default api setting ([#6](https://github.com/GrabAByte/terraform-module-aws-api-gateway/issues/6)) ([9486a6e](https://github.com/GrabAByte/terraform-module-aws-api-gateway/commit/9486a6ea9a998726a66327f1089462644fe498fd))
+
 ## [1.2.1](https://github.com/GrabAByte/terraform-module-aws-api-gateway/compare/v1.2.0...v1.2.1) (2025-08-09)
 
 
