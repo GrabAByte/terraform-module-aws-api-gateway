@@ -3,6 +3,12 @@ variable "api_name" {
   description = "The name of the API"
 }
 
+variable "api_key_source" {
+  type        = string
+  description = "The name of the API key source"
+  default     = "AUTHORIZER"
+}
+
 variable "api_routes" {
   type = map(any)
 }

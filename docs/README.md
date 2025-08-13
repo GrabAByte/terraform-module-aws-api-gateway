@@ -42,6 +42,7 @@ No modules.
 | <a name="input_api_authorization_identity_source"></a> [api\_authorization\_identity\_source](#input\_api\_authorization\_identity\_source) | The API Authorization Identity Source | `string` | `"method.request.header.Authorization"` | no |
 | <a name="input_api_authorization_ttl"></a> [api\_authorization\_ttl](#input\_api\_authorization\_ttl) | The Auth Method TTL in seconds | `number` | `300` | no |
 | <a name="input_api_authorization_type"></a> [api\_authorization\_type](#input\_api\_authorization\_type) | The API Authorization type | `string` | `"TOKEN"` | no |
+| <a name="input_api_key_source"></a> [api\_key\_source](#input\_api\_key\_source) | The name of the API key source | `string` | `"AUTHORIZER"` | no |
 | <a name="input_api_name"></a> [api\_name](#input\_api\_name) | The name of the API | `string` | n/a | yes |
 | <a name="input_api_routes"></a> [api\_routes](#input\_api\_routes) | n/a | `map(any)` | n/a | yes |
 | <a name="input_binary_media_types"></a> [binary\_media\_types](#input\_binary\_media\_types) | The applicable binary media types to accept | `list(any)` | n/a | yes |
