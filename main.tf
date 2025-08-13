@@ -68,7 +68,7 @@ resource "aws_api_gateway_stage" "stage" {
   stage_name    = var.stage_name
 }
 
-resource "aws_method_settings" "all" {
+resource "aws_api_gateway_method_settings" "all" {
   for_each    = var.api_routes
   rest_api_id = aws_api_gateway_rest_api.api.id
   stage_name  = var.stage_name
