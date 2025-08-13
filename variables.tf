@@ -3,6 +3,12 @@ variable "api_name" {
   description = "The name of the API"
 }
 
+variable "api_key_source" {
+  type        = string
+  description = "The name of the API key source"
+  default     = "AUTHORIZER"
+}
+
 variable "api_routes" {
   type = map(any)
 }
@@ -39,6 +45,20 @@ variable "lambda_names" {
   type        = list(string)
   default     = []
   description = "The name of the main lambda function"
+}
+
+variable "method_settings" {
+  type = object({
+    data_trace_enabled     = bool
+    throttling_burst_limit = number
+    throttling_rate_limit  = number
+  })
+
+  default = {
+    data_trace_enabled     = false
+    throttling_burst_limit = 100
+    throttling_rate_limit  = 200
+  }
 }
 
 variable "stage_name" {

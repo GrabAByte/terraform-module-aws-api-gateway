@@ -1,6 +1,7 @@
 resource "aws_api_gateway_rest_api" "api" {
   name               = var.api_name
   binary_media_types = var.binary_media_types
+  api_key_source     = var.api_key_source
   tags               = var.tags
 }
 
@@ -40,7 +41,6 @@ resource "aws_api_gateway_integration" "lambda" {
   uri                     = each.value.lambda_invoke_arn
 }
 
-#if $lambda_name then
 resource "aws_lambda_permission" "api_gateway" {
   count         = length(var.lambda_names)
   statement_id  = "AllowExecutionFromAPIGatewayUpload"
@@ -68,11 +68,17 @@ resource "aws_api_gateway_stage" "stage" {
   stage_name    = var.stage_name
 }
 
-# resource "aws_api_gateway_method_settings" "all" {
-#   for_each    = var.api_routes
-#   rest_api_id = aws_api_gateway_rest_api.api.id
-#   stage_name  = var.stage_name
-#   method_path = "${each.key}/${each.value.http_method}"
+resource "aws_api_gateway_method_settings" "all" {
+  for_each    = var.api_routes
+  rest_api_id = aws_api_gateway_rest_api.api.id
+  stage_name  = var.stage_name
+  method_path = "${each.key}/${each.value.http_method}"
 
-#   depends_on = [aws_api_gateway_stage.stage]
-# }
+  settings {
+    data_trace_enabled     = var.method_settings.data_trace_enabled
+    throttling_burst_limit = var.method_settings.throttling_burst_limit
+    throttling_rate_limit  = var.method_settings.throttling_rate_limit
+  }
+
+  depends_on = [aws_api_gateway_stage.stage]
+}
