@@ -47,6 +47,24 @@ variable "lambda_names" {
   description = "The name of the main lambda function"
 }
 
+variable "method_settings" {
+  type = object({
+    metrics_enabled        = bool
+    logging_level          = string
+    data_trace_enabled     = bool
+    throttling_burst_limit = number
+    throttling_rate_limit  = number
+  })
+
+  default = {
+    metrics_enabled        = true
+    logging_level          = "INFO"
+    data_trace_enabled     = false
+    throttling_burst_limit = 100
+    throttling_rate_limit  = 200
+  }
+}
+
 variable "stage_name" {
   type        = string
   description = "The stage name for API resource"
