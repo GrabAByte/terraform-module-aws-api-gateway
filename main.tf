@@ -41,7 +41,6 @@ resource "aws_api_gateway_integration" "lambda" {
   uri                     = each.value.lambda_invoke_arn
 }
 
-#if $lambda_name then
 resource "aws_lambda_permission" "api_gateway" {
   count         = length(var.lambda_names)
   statement_id  = "AllowExecutionFromAPIGatewayUpload"
