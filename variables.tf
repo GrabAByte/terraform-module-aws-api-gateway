@@ -10,7 +10,8 @@ variable "api_key_source" {
 }
 
 variable "api_routes" {
-  type = map(any)
+  type        = map(any)
+  description = "A map containing each route/resource foor the API and its configuration"
 }
 
 variable "api_authorization_ttl" {
@@ -43,8 +44,8 @@ variable "lambda_auth_invoke_arn" {
 
 variable "lambda_names" {
   type        = list(string)
-  default     = []
   description = "The name of the main lambda function"
+  default     = []
 }
 
 variable "method_settings" {
@@ -53,7 +54,7 @@ variable "method_settings" {
     throttling_burst_limit = number
     throttling_rate_limit  = number
   })
-
+  description = "The caching, logging and throttling configurations for the API method"
   default = {
     data_trace_enabled     = false
     throttling_burst_limit = 100
