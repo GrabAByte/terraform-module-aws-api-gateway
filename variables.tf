@@ -10,7 +10,8 @@ variable "api_key_source" {
 }
 
 variable "api_routes" {
-  type = map(any)
+  type        = map(any)
+  description = "A map containing each route/resource foor the API and its configuration"
 }
 
 variable "api_authorization_ttl" {
@@ -59,6 +60,7 @@ variable "method_settings" {
     throttling_burst_limit = 100
     throttling_rate_limit  = 200
   }
+  description = "The caching, logging and throttling configurations for the API method"
 }
 
 variable "stage_name" {

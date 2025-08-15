@@ -45,11 +45,11 @@ No modules.
 | <a name="input_api_authorization_type"></a> [api\_authorization\_type](#input\_api\_authorization\_type) | The API Authorization type | `string` | `"TOKEN"` | no |
 | <a name="input_api_key_source"></a> [api\_key\_source](#input\_api\_key\_source) | The name of the API key source | `string` | `"AUTHORIZER"` | no |
 | <a name="input_api_name"></a> [api\_name](#input\_api\_name) | The name of the API | `string` | n/a | yes |
-| <a name="input_api_routes"></a> [api\_routes](#input\_api\_routes) | n/a | `map(any)` | n/a | yes |
+| <a name="input_api_routes"></a> [api\_routes](#input\_api\_routes) | A map containing each route/resource foor the API and its configuration | `map(any)` | n/a | yes |
 | <a name="input_binary_media_types"></a> [binary\_media\_types](#input\_binary\_media\_types) | The applicable binary media types to accept | `list(any)` | n/a | yes |
 | <a name="input_lambda_auth_invoke_arn"></a> [lambda\_auth\_invoke\_arn](#input\_lambda\_auth\_invoke\_arn) | The ARN for invoking the Authenticating Lambda function | `string` | n/a | yes |
 | <a name="input_lambda_names"></a> [lambda\_names](#input\_lambda\_names) | The name of the main lambda function | `list(string)` | `[]` | no |
-| <a name="input_method_settings"></a> [method\_settings](#input\_method\_settings) | n/a | <pre>object({<br/>    data_trace_enabled     = bool<br/>    throttling_burst_limit = number<br/>    throttling_rate_limit  = number<br/>  })</pre> | <pre>{<br/>  "data_trace_enabled": false,<br/>  "throttling_burst_limit": 100,<br/>  "throttling_rate_limit": 200<br/>}</pre> | no |
+| <a name="input_method_settings"></a> [method\_settings](#input\_method\_settings) | The caching, logging and throttling configurations for the API method | <pre>object({<br/>    data_trace_enabled     = bool<br/>    throttling_burst_limit = number<br/>    throttling_rate_limit  = number<br/>  })</pre> | <pre>{<br/>  "data_trace_enabled": false,<br/>  "throttling_burst_limit": 100,<br/>  "throttling_rate_limit": 200<br/>}</pre> | no |
 | <a name="input_stage_name"></a> [stage\_name](#input\_stage\_name) | The stage name for API resource | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The project tags | `map(any)` | n/a | yes |
 
